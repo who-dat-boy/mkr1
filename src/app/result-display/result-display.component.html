@@ -1,0 +1,17 @@
+<h2>Результати розрахунків</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Фігура</th>
+      <th>Об'єм</th>
+      <th>Площа поверхні</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of calculationResults">
+      <td>{{ result.name }}</td>
+      <td>{{ result.volume }}</td>
+      <td>{{ result.surfaceArea }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<form [formGroup]="formData" (ngSubmit)="submitForm()">
+  <label>
+    Довжина:
+    <input type="number" formControlName="length">
+  </label>
+  <label>
+    Ширина:
+    <input type="number" formControlName="width">
+  </label>
+  <label>
+    Висота:
+    <input type="number" formControlName="height">
+  </label>
+
+  <button type="submit">Розрахувати</button>
+</form>
