@@ -14,34 +14,42 @@ export class AppComponent {
   constructor(private fb: FormBuilder, private calculationService: CalculationService) {}
 
   ngOnInit() {
-    // Ініціалізація форми введення даних за допомогою FormBuilder
+    console.log('Ініціалізація форми введення даних за допомогою FormBuilder');
     this.formData = this.fb.group({
       length: ['', Validators.required],
       width: ['', Validators.required],
-      height: ['', Validators.required],
-      // Додайте додаткові поля для введення даних
+      height: ['', Validators.required]
     });
+    console.log(this.formData);
   }
 
   // Метод для обробки введених даних з форми
   submitForm() {
-    // Отримайте дані з форми
-    const { length, width, height } = this.formData.value;
+    if (this.formData.valid) {
+      const formDataValues = this.formData.value;
+      const length = formDataValues.length;
+      const width = formDataValues.width;
+      const height = formDataValues.height;
+  
+      console.log('Отримані дані:', length, width, height);
 
-    // Викличте сервіс для розрахунку об'єму та площі поверхні фігур
-    const cubeVolume = this.calculationService.calculateCubeVolume(length);
-    const cubeSurfaceArea = this.calculationService.calculateCubeSurfaceArea(length);
-    const cylinderVolume = this.calculationService.calculateCylinderVolume(width / 2, height);
-    const cylinderSurfaceArea = this.calculationService.calculateCylinderSurfaceArea(width / 2, height);
+      // Викличте сервіс для розрахунку об'єму та площі поверхні фігур
+      const cubeVolume = this.calculationService.calculateCubeVolume(length);
+      const cubeSurfaceArea = this.calculationService.calculateCubeSurfaceArea(length);
+      const cylinderVolume = this.calculationService.calculateCylinderVolume(width / 2, height);
+      const cylinderSurfaceArea = this.calculationService.calculateCylinderSurfaceArea(width / 2, height);
 
-    // Створіть об'єкти з результатами розрахунків
-    const cubeResult = { name: 'Куб', volume: cubeVolume, surfaceArea: cubeSurfaceArea };
-    const cylinderResult = { name: 'Циліндр', volume: cylinderVolume, surfaceArea: cylinderSurfaceArea };
+      // Створіть об'єкти з результатами розрахунків
+      const cubeResult = { name: 'Куб', volume: cubeVolume, surfaceArea: cubeSurfaceArea };
+      const cylinderResult = { name: 'Циліндр', volume: cylinderVolume, surfaceArea: cylinderSurfaceArea };
 
-    // Очистіть попередні результати перед додаванням нових
-    this.calculationResults = [];
+      // Очистіть попередні результати перед додаванням нових
+      this.calculationResults = [];
 
-    // Додайте нові результати до масиву
-    this.calculationResults.push(cubeResult, cylinderResult);
+      // Додайте нові результати до масиву]
+      this.calculationResults.push(cubeResult, cylinderResult);
+    } else {
+      console.log('Форма недійсна. Будь ласка, заповніть всі обов\'язкові поля.');
+    }
   }
 }

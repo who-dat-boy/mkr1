@@ -1,21 +1,21 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-  <form [formGroup]="formData" (ngSubmit)="submitForm()">
-    <label>
-      Довжина:
-      <input type="number" formControlName="length">
-    </label>
-    <label>
-      Ширина:
-      <input type="number" formControlName="width">
-    </label>
-    <label>
-      Висота:
-      <input type="number" formControlName="height">
-    </label>
-    <!-- Додайте додаткові поля для введення даних -->
-    <button type="submit">Розрахувати</button>
-  </form>
-  
+<div>
+  <div>
+    <h2>Компонент введення даних</h2>
+    <form [formGroup]="formData" (ngSubmit)="submitForm()">
+      <div>
+        <label>Довжина:</label>
+        <input type="number" formControlName="length">
+      </div>
+      <div>
+        <label>Ширина:</label>
+        <input type="number" formControlName="width">
+      </div>
+      <div>
+        <label>Висота:</label>
+        <input type="number" formControlName="height">
+      </div>
+    </form>
+  </div>
+  <button class="calculate-button" (click)="submitForm()">Розрахувати</button>
   <app-result-display [calculationResults]="calculationResults"></app-result-display>
-</ion-app>
+</div>

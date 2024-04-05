@@ -6,5 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./result-display.component.scss']
 })
 export class ResultDisplayComponent {
-  @Input() calculationResults!: any[];
+  @Input() calculationResults?: any[];
+
+  constructor() { 
+    console.log(this.calculationResults); // Вивести масив результатів у консоль
+  }
 }

@@ -9,10 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ResultDisplayComponent } from './result-display/result-display.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DataInputComponent } from './data-input/data-input.component';
 
 @NgModule({
-  declarations: [AppComponent, DataInputComponent,ResultDisplayComponent],
+  declarations: [AppComponent,ResultDisplayComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

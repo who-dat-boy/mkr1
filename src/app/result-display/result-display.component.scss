@@ -1,0 +1,13 @@
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+  
+.results-table th, .results-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+.results-table th {
+    text-align: left;
+}
